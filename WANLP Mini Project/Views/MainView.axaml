@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:WANLP_Mini_Project.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+			 xmlns:pcontrols="using:WANLP_Mini_Project"
+             x:Class="WANLP_Mini_Project.Views.MainView"
+             x:DataType="vm:MainViewModel"
+			 Background="{DynamicResource main_background_color}">
+  <Design.DataContext>
+    <vm:MainViewModel />
+  </Design.DataContext>
+	
+	<Grid Name="GridPrincipale">
+		<Grid Background="Transparent" IsVisible="{Binding MenuVertical}" Tapped="Grid_Tapped"/>
+		<Grid RowDefinitions="5,50,*,5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="5"/>
+				<ColumnDefinition Width="50"/>
+				<ColumnDefinition Width="{DynamicResource langue_menu_column_droite}"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="{DynamicResource langue_menu_column_ghauche}"/>
+				<ColumnDefinition Width="50"/>
+				<ColumnDefinition Width="5"/>
+			</Grid.ColumnDefinitions>
+			<Border Background="{DynamicResource quatrieme_background_color}" Grid.Column="1" CornerRadius="10" Grid.Row="1" Grid.ColumnSpan="5">
+				<TextBlock Text="{DynamicResource langue_titre}" FontWeight="Bold" FontSize="18" Foreground="{DynamicResource textForground_color}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			</Border>
+			
+			<!--Border du Menu-->
+			<Border IsVisible="{Binding !Windows}" Classes.menuHorizontal="{Binding MenuHorizional}" Classes.menuTest="{Binding !MenuHorizional}" Classes.menuVertical="{Binding MenuVertical}" Grid.Row="1">
+				<Border Classes="menu" VerticalAlignment="Top" Width="{Binding $parent.Bounds.Width}" Height="{Binding $parent.Bounds.Height}" CornerRadius="10">
+					<Grid>
+						<StackPanel Classes.menuHorizontal="{Binding MenuHorizional}">
+							<pcontrols:RMenu Classes.horizontal="{Binding MenuHorizional}" Tapped="Menu_Tapped" IsVisible="{Binding !MenuHorizional}" ZeroHeight="True" Name="menu" Nom="{DynamicResource langue_menu}" Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" Invisible="{Binding Menuouvert_windows}"/>
+							<Grid Height="60" IsVisible="{Binding !MenuHorizional}">
+								<Border Tapped="Changerthemeicon" CornerRadius="20" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="{DynamicResource langue_horizontalAlignmentL}">
+									<Path IsVisible="{Binding Menuouvert_windows}"  Margin="5,0" Stretch="Fill" Fill="{DynamicResource textForground_color}" Data="{DynamicResource theme_path}" Width="30" Height="30"/>
+								</Border>
+							</Grid>
+							<pcontrols:RMenu Classes.horizontal="{Binding MenuHorizional}" Name="Chatbot_menu" Tapped="Chatbot_taped" Nom="Chat Bot" Data="{DynamicResource chat_path}" Invisible="{Binding Menuouvert_windows}" ZeroHeight="{Binding Menuouvert_windows}" />
+							<pcontrols:RMenu Classes.horizontal="{Binding MenuHorizional}" Name="paramaitre_menu" Tapped="paramaitre_Tapped" Nom="{DynamicResource langue_parametres}" Invisible="{Binding Menuouvert_windows}" ZeroHeight="{Binding Menuouvert_windows}" Data="{DynamicResource paramaitre_path}" />
+							<pcontrols:RMenu Classes.horizontal="{Binding MenuHorizional}" Name="apropos_menu" Tapped="apropos_Tapped" Nom="{DynamicResource langue_a_propos}" Invisible="{Binding Menuouvert_windows}" ZeroHeight="{Binding Menuouvert_windows}" Data="{DynamicResource aprops_path}"/>
+						</StackPanel>
+					</Grid>
+				</Border>
+			</Border>
+		</Grid>
+
+		<Grid ZIndex="-1" Margin="0,60,0,0" Name="GridNavigation">
+			
+		</Grid>
+		<Grid IsVisible="{Binding Information}" Grid.RowSpan="2" Background="Transparent"/>
+		<Grid IsVisible="{Binding Information}" Background="{DynamicResource traisier_background_color}" ColumnDefinitions="auto,*,auto" VerticalAlignment="Bottom" Grid.RowSpan="2">
+			<Path Grid.Column="{DynamicResource langue_grid_droite}" IsVisible="{Binding Erreur}" VerticalAlignment="Center" Stretch="Fill" Width="40" Margin="10" Height="40" Fill="Red" Data="{DynamicResource erreur_path}"/>
+			<Path Grid.Column="{DynamicResource langue_grid_droite}" IsVisible="{Binding Succee}" VerticalAlignment="Center" Stretch="Fill" Width="40" Margin="10" Height="40" Fill="GreenYellow" Data="{DynamicResource succee_path}"/>
+			<Path Grid.Column="{DynamicResource langue_grid_droite}" IsVisible="{Binding Alert}" VerticalAlignment="Center" Stretch="Fill" Width="40" Margin="10" Height="40" Fill="Yellow" Data="{DynamicResource alert_path}"/>
+			<TextBlock VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Grid.Column="1" Text="{Binding Message_erreur}" Margin="10" Foreground="{DynamicResource textForground_color}"/>
+			<Button Grid.Column="{DynamicResource langue_grid_ghauche}" Margin="10" HorizontalAlignment="Stretch" Foreground="{DynamicResource textForground_color}" Background="{DynamicResource couleur_scondaire_color}" CornerRadius="15" Content="{DynamicResource langue_oui}" Command="{Binding afficher_informationCommand}"/>
+		</Grid>
+		<Grid IsVisible="{Binding Commantaire}" Background="Transparent">
+			<Border Background="{DynamicResource quatrieme_background_color}" Width="300" VerticalAlignment="Center" BorderBrush="{DynamicResource couleur_principale_color}" CornerRadius="15" BorderThickness="2">
+				<StackPanel VerticalAlignment="Center">
+					<Button Command="{Binding cacher_commentaireCommand}" Background="Transparent" Width="45" HorizontalAlignment="{DynamicResource langue_horizontalAlignmentL}">
+						<Path Width="15" Margin="5,0" Stretch="Fill" Fill="{DynamicResource textForground_color}" Height="15" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" RenderTransform="{DynamicResource langue_path_rotation}"/>
+					</Button>
+					<TextBlock VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Grid.Column="1" Text="{DynamicResource langue_notez}" FontSize="24" Margin="5" Foreground="{DynamicResource textForground_color}"/>
+					<pcontrols:Retoile Margin="40,10"/>
+					<Border Margin="10" CornerRadius="15" BorderThickness="2" BorderBrush="{DynamicResource couleur_principale_color}" Background="{DynamicResource traisier_background_color}">
+						<DockPanel ClipToBounds="True" >
+							<TextBox Name="message" Margin="5" DockPanel.Dock="{DynamicResource langue_dock_droite}" Watermark="{DynamicResource langue_votre_commentaire}" IsTabStop="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" MaxLines="3" CornerRadius="{DynamicResource langue_textboxradius}" Classes="clearButton"/>
+						</DockPanel>
+					</Border>
+					<Button HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="{DynamicResource textForground_color}" Background="{DynamicResource couleur_scondaire_color}" CornerRadius="15" Content="{DynamicResource langue_envoyer}" />
+				</StackPanel>
+			</Border>
+		</Grid>
+	</Grid>
+	
+</UserControl>

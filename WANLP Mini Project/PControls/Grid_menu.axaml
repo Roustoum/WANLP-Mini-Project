@@ -1,0 +1,34 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      
+    </Border>
+  </Design.PreviewWith>
+
+	<Style Selector="Grid.menufermer_windows">
+		<Setter Property="Width" Value="50"/>
+		<Setter Property="Grid.RowSpan" Value="2"/>
+		<Setter Property="ZIndex" Value="3"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<DoubleTransition Easing="BackEaseOut" Property="Width" Duration="0:0:0.3"/>
+			</Transitions>
+		</Setter>
+	</Style>
+	
+	<Style Selector="Grid.menufermer">
+		<Setter Property="Width" Value="0"/>
+		<Setter Property="Grid.RowSpan" Value="2"/>
+		<Setter Property="ZIndex" Value="3"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<DoubleTransition Easing="BackEaseOut" Property="Width" Duration="0:0:0.3"/>
+			</Transitions>
+		</Setter>
+	</Style>
+	
+	<Style Selector="Grid.menuouvert">
+		<Setter Property="Width" Value="250"/>
+	</Style>
+</Styles>

@@ -1,0 +1,21 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:WANLP_Mini_Project">
+	<Design.PreviewWith>
+		<StackPanel Width="500" Background="Wheat">
+			<controls:Rparamaitre Nom="test"/>
+		</StackPanel>
+	</Design.PreviewWith>
+
+	<Style Selector="controls|Rparamaitre">
+		<!-- Set Defaults -->
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid >
+					<Border Height="2" VerticalAlignment="Center" Margin="25,0" CornerRadius="5" Background="{DynamicResource couleur_principale_color}" />
+					<TextBlock FontWeight="Bold" Padding="10" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}" Text="{TemplateBinding Nom}" VerticalAlignment="Center" Foreground="{DynamicResource couleur_principale_color}" Background="{DynamicResource secondaire_background_color}" />
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+</Styles>

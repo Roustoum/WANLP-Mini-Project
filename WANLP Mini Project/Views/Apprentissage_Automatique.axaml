@@ -1,0 +1,129 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="900"
+             Background="{DynamicResource main_background_color}"
+			 x:Class="WANLP_Mini_Project.Apprentissage_Automatique">
+	<UserControl.Styles>
+		<Style Selector="Button.selectioner">
+			<Setter Property="BorderBrush" Value="{DynamicResource couleur_principale_color}"/>
+		</Style>
+	</UserControl.Styles>
+	<ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Hidden" >
+		<StackPanel>
+			<StackPanel Margin="0,0,0,10" VerticalAlignment="Top" Background="{DynamicResource secondaire_background_color}">
+				<TextBlock Margin="15,5" FontWeight="Bold" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_type_bien}" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}"/>
+				<Grid Background="Transparent" Margin="5" ColumnDefinitions="30,*,*,*,30" Height="120" VerticalAlignment="Top">
+					<Button Command="{Binding gauche_toucherCommand}" Background="Transparent" VerticalAlignment="Stretch" BorderThickness="0"> 
+						<Path VerticalAlignment="Center" Data="{DynamicResource gauche_fleche_path}" Stretch="Uniform" Width="15" Fill="{DynamicResource textForground_color}" />
+					</Button>
+					<Button Classes.selectioner="{Binding Local}" Command="{Binding local_selectionerCommand}" Padding="3" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Grid.Column="{DynamicResource langue_border_ghauche_horizental}" CornerRadius="10" BorderThickness="3">
+						<Grid>
+							<Path Data="{DynamicResource garage_path}" Margin="10,5,10,30" HorizontalAlignment="Center" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+							<TextBlock Text="{DynamicResource langue_local}" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+						</Grid>
+					</Button>
+					<Button Classes.selectioner="{Binding Appartement}" Command="{Binding appartement_selectionerCommand}" Padding="3" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Grid.Column="2" CornerRadius="10" BorderThickness="3">
+						<Grid>
+							<Path Data="{DynamicResource appartement_path}" Margin="10,5,10,30" HorizontalAlignment="Center" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+							<TextBlock Text="{DynamicResource langue_appartement}" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+						</Grid>
+					</Button>
+					<Button Classes.selectioner="{Binding Villa}" Command="{Binding villa_selectionerCommand}" Background="Transparent" Padding="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Grid.Column="{DynamicResource langue_border_ghauche_antivertical}" CornerRadius="10" BorderThickness="3">
+						<Grid>
+							<Path Data="{DynamicResource villa_path}" Margin="10,5,10,30" HorizontalAlignment="Center" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+							<TextBlock Text="{DynamicResource langue_villa}" FontSize="13" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+						</Grid>
+					</Button>
+					<Button Command="{Binding droite_toucherCommand}" Background="Transparent" VerticalAlignment="Stretch" BorderThickness="0" Grid.Column="4">
+						<Path VerticalAlignment="Center" Data="{DynamicResource droite_fleche_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+					</Button>
+				</Grid>
+			</StackPanel>
+			<StackPanel Margin="0,0,0,10" VerticalAlignment="Top" Background="{DynamicResource secondaire_background_color}">
+				<TextBlock Margin="15,5" FontWeight="Bold" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_quoid_faire}" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}"/>
+				<StackPanel Orientation="Horizontal" FlowDirection="{DynamicResource langue_flowdirection}" Margin="10,5">
+					<Button Classes.selectioner="{Binding Vendre}" Command="{Binding vendre_selectionerCommand}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" CornerRadius="10" BorderThickness="3">
+						<TextBlock Text="{DynamicResource langue_vendre}" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+					</Button>
+					<Button Classes.selectioner="{Binding Louer}" Command="{Binding louer_selectionerCommand}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" CornerRadius="10" BorderThickness="3">
+						<TextBlock Text="{DynamicResource langue_louer}" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+					</Button>
+				</StackPanel>
+			</StackPanel>
+			<StackPanel Margin="0,0,0,10" VerticalAlignment="Top" Background="{DynamicResource secondaire_background_color}">
+				<StackPanel  Orientation="Horizontal" FlowDirection="{DynamicResource langue_flowdirection}">
+					<StackPanel>
+						<TextBlock Margin="15,5" FontWeight="Bold" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_type_appart}" HorizontalAlignment="Left"/>
+						<StackPanel Orientation="Horizontal" FlowDirection="{DynamicResource langue_flowdirection}" Margin="10,5">
+							<Button Command="{Binding plus_appartementCommand}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent" Margin="5" Padding="5" BorderBrush="{DynamicResource couleur_principale_color}" CornerRadius="10" BorderThickness="2" >
+								<Path VerticalAlignment="Center" Data="{DynamicResource plus_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+							</Button>
+							<TextBlock Text="{Binding Type_appartement}" FontSize="20" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+							<Button Command="{Binding moin_appartementCommand}" BorderBrush="{DynamicResource couleur_principale_color}" Background="Transparent" VerticalAlignment="Stretch" Padding="5" HorizontalAlignment="Stretch" Margin="5" CornerRadius="10" BorderThickness="3">
+								<Path VerticalAlignment="Center" Data="{DynamicResource moin_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+							</Button>
+						</StackPanel>
+					</StackPanel>
+					<Border Width="1" CornerRadius="20" Margin="0,5" Background="{DynamicResource textForground_color}"/>
+					<StackPanel>
+						<TextBlock Margin="15,5" FontWeight="Bold" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_etage}" HorizontalAlignment="Left"/>
+						<StackPanel Orientation="Horizontal" FlowDirection="{DynamicResource langue_flowdirection}" Margin="10,5">
+							<Button Command="{Binding plus_etagesCommand}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent" Margin="5" Padding="5" BorderBrush="{DynamicResource couleur_principale_color}" CornerRadius="10" BorderThickness="3" >
+								<Path VerticalAlignment="Center" Data="{DynamicResource plus_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+							</Button>
+							<TextBlock Text="{Binding Etages}" FontSize="30" Margin="10,5" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+							<Button Command="{Binding moin_etagesCommand}" BorderBrush="{DynamicResource couleur_principale_color}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Padding="5" CornerRadius="10" BorderThickness="3">
+								<Path VerticalAlignment="Center" Data="{DynamicResource moin_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+							</Button>
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
+			</StackPanel>
+			<StackPanel Margin="0,0,0,10" VerticalAlignment="Top" Background="{DynamicResource secondaire_background_color}">
+				<TextBlock Margin="15,5" FontWeight="Bold" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_nbretage}" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}"/>
+				<StackPanel Orientation="Horizontal" FlowDirection="{DynamicResource langue_flowdirection}" Margin="10,5">
+					<Button Command="{Binding plus_nbretagesCommand}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent" Margin="5" Padding="5" BorderBrush="{DynamicResource couleur_principale_color}" CornerRadius="10" BorderThickness="3" >
+						<Path VerticalAlignment="Center" Data="{DynamicResource plus_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+					</Button>
+					<TextBlock Text="{Binding Nbretages}" FontSize="30" Margin="10,5" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+					<Button Command="{Binding moin_nbretagesCommand}" BorderBrush="{DynamicResource couleur_principale_color}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Padding="5" CornerRadius="10" BorderThickness="3">
+						<Path VerticalAlignment="Center" Data="{DynamicResource moin_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+					</Button>
+				</StackPanel>
+			</StackPanel>
+			<StackPanel Margin="0,0,0,10" VerticalAlignment="Top" Background="{DynamicResource secondaire_background_color}">
+				<TextBlock Margin="15,5" FontWeight="Bold" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_facade}" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}"/>
+				<StackPanel Orientation="Horizontal" FlowDirection="{DynamicResource langue_flowdirection}" Margin="10,5">
+					<Button Command="{Binding plus_facadeCommand}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent" Margin="5" Padding="5" BorderBrush="{DynamicResource couleur_principale_color}" CornerRadius="10" BorderThickness="3" >
+						<Path VerticalAlignment="Center" Data="{DynamicResource plus_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+					</Button>
+					<TextBlock Text="{Binding Facades}" FontSize="30" Margin="10,5" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}" />
+					<Button Command="{Binding moin_facadeCommand}" BorderBrush="{DynamicResource couleur_principale_color}" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5" Padding="5" CornerRadius="10" BorderThickness="3">
+						<Path VerticalAlignment="Center" Data="{DynamicResource moin_path}" Width="15" Stretch="Uniform" Fill="{DynamicResource textForground_color}"/>
+					</Button>
+				</StackPanel>
+			</StackPanel>
+			<StackPanel Margin="0,0,0,10" VerticalAlignment="Top" Background="{DynamicResource secondaire_background_color}">
+				<TextBlock Margin="15,10" FontWeight="Bold" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_surface_const}" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}"/>
+				<Border DockPanel.Dock="{DynamicResource langue_dock_ghauche}" Margin="20,0,20,20" CornerRadius="15" BorderThickness="2" BorderBrush="{DynamicResource couleur_principale_color}" Background="{DynamicResource traisier_background_color}">
+					<Grid ColumnDefinitions="auto,*,auto">
+						<Path Grid.Column="{DynamicResource langue_grid_droite}" Width="25" Margin="8,0" Stretch="Fill" Fill="{DynamicResource textForground_color}" Height="20" Data="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3"/>
+						<TextBox Grid.Column="1" UseFloatingWatermark="True" Text="{Binding Surface_const, Mode=TwoWay}" Margin="5" Watermark="{DynamicResource langue_surface_const}" BorderThickness="0" CornerRadius="{DynamicResource langue_textboxradius}" Classes="clearButton"/>
+					</Grid>
+				</Border>
+			</StackPanel>
+			<StackPanel Margin="0,0,0,10" VerticalAlignment="Top" Background="{DynamicResource secondaire_background_color}">
+				<TextBlock Margin="15,10" FontWeight="Bold" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_surface}" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}"/>
+				<Border DockPanel.Dock="{DynamicResource langue_dock_ghauche}" Margin="20,0,20,20" CornerRadius="15" BorderThickness="2" BorderBrush="{DynamicResource couleur_principale_color}" Background="{DynamicResource traisier_background_color}">
+					<Grid ColumnDefinitions="auto,*,auto">
+						<Path Grid.Column="{DynamicResource langue_grid_droite}" Width="25" Margin="8,0" Stretch="Fill" Fill="{DynamicResource textForground_color}" Height="20" Data="M3 11H11V3H3M5 5H9V9H5M13 21H21V13H13M15 15H19V19H15M3 21H11V13H3M5 15H9V19H5M13 3V11H21V3M19 9H15V5H19Z"/>
+						<TextBox Grid.Column="1" UseFloatingWatermark="True" Text="{Binding Surface, Mode=TwoWay}" Margin="5" Watermark="{DynamicResource langue_surface}" BorderThickness="0" Classes="clearButton"/>
+					</Grid>
+				</Border>
+				<Button Command="{Binding predire_prixCommand}" HorizontalAlignment="Center" Margin="0,0,0,10" Foreground="{DynamicResource textForground_color}" Background="{DynamicResource couleur_scondaire_color}" CornerRadius="15" Content="{DynamicResource langue_faire_estimer}"/>
+			</StackPanel>
+		</StackPanel>
+	</ScrollViewer>
+</UserControl>

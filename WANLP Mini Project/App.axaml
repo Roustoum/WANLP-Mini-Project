@@ -1,0 +1,97 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="WANLP_Mini_Project.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+	<Application.Styles>
+		<StyleInclude Source="/PControls/Rbutton.axaml"/>
+		<StyleInclude Source="/PControls/Grid_menu.axaml"/>
+		<StyleInclude Source="/PControls/RMenu.axaml"/>
+		<StyleInclude Source="/PControls/Rparamaitre.axaml"/>
+		<FluentTheme />
+
+		<Style Selector="StackPanel.menuHorizontal">
+			<Setter Property="Orientation" Value="Horizontal"/>
+			<Setter Property="FlowDirection" Value="{DynamicResource langue_flowdirection}"/>
+		</Style>
+
+		<Style Selector="Border.menu">
+			<Setter Property="Background" Value="{DynamicResource quatrieme_background_color}"/>
+			<Setter Property="HorizontalAlignment" Value="{DynamicResource langue_horizontalAlignment}"/>
+			<Setter Property="Transitions">
+				<Transitions>
+					<DoubleTransition Easing="CubicEaseOut" Property="Width" Duration="0:0:0.3"/>
+					<DoubleTransition Easing="CubicEaseOut" Property="Height" Duration="0:0:0.3"/>
+				</Transitions>
+			</Setter>
+		</Style>
+
+		<Style Selector="Border.menuTest">
+			<Setter Property="Grid.Column" Value="{DynamicResource langue_border_ghauche_horizentalouvert}"/>
+		</Style>
+
+		<Style Selector="Border.menuVertical">
+			<Setter Property="Grid.Column" Value="{DynamicResource langue_border_ghauche_vertical}"/>
+			<Setter Property="Grid.ColumnSpan" Value="2"/>
+			<Setter Property="Grid.RowSpan" Value="2"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
+
+		<Style Selector="Border.menuHorizontal">
+			<Setter Property="Grid.Column" Value="{DynamicResource langue_border_ghauche_horizental}"/>
+			<Setter Property="Grid.ColumnSpan" Value="3"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
+
+		<Style Selector="Border.antimenuTest">
+			<Setter Property="Grid.Column" Value="{DynamicResource langue_border_ghauche_antihorizentalouvert}"/>
+			<Setter Property="Grid.ColumnSpan" Value="4"/>
+		</Style>
+
+		<Style Selector="Border.antimenuVertical">
+			<Setter Property="Grid.Column" Value="{DynamicResource langue_border_ghauche_antivertical}"/>
+			<Setter Property="Grid.ColumnSpan" Value="3"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
+
+		<Style Selector="Border.antimenuHorizontal">
+			<Setter Property="Grid.Column" Value="{DynamicResource langue_border_ghauche_antihorizental}"/>
+			<Setter Property="Grid.ColumnSpan" Value="2"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
+
+	</Application.Styles>
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="/PControls/PTextBox.axaml"/>
+				<ResourceInclude Source="/PControls/PCheckBox.axaml"/>
+				<ResourceInclude Source="avares://LoadingIndicators.Avalonia/LoadingIndicators.axaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+		<StreamGeometry x:Key="chat_path">M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M6,9H18V11H6M14,14H6V12H14M18,8H6V6H18</StreamGeometry>
+		<StreamGeometry x:Key="aprops_path">M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z</StreamGeometry>
+		<StreamGeometry x:Key="paramaitre_path">M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z</StreamGeometry>
+		<StreamGeometry x:Key="utilisateur_path">M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z</StreamGeometry>
+		<StreamGeometry x:Key="mot_de_passe_path">M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z</StreamGeometry>
+		<StreamGeometry x:Key="deconnection_path">M17 8L15.6 9.4L17.2 11H9V13H17.2L15.6 14.6L17 16L21 12L17 8M5 5H12V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H12V19H5V5Z</StreamGeometry>
+		<StreamGeometry x:Key="succee_path">M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z</StreamGeometry>
+		<StreamGeometry x:Key="alert_path">M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z</StreamGeometry>
+		<StreamGeometry x:Key="erreur_path">M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z</StreamGeometry>
+		<StreamGeometry x:Key="droite_fleche_path">M10,17L15,12L10,7V17Z</StreamGeometry>
+		<StreamGeometry x:Key="gauche_fleche_path">M14,7L9,12L14,17V7Z</StreamGeometry>
+		<StreamGeometry x:Key="apprentissage_path">M22,21H2V3H4V19H6V17H10V19H12V16H16V19H18V17H22V21M18,14H22V16H18V14M12,6H16V9H12V6M16,15H12V10H16V15M6,10H10V12H6V10M10,16H6V13H10V16Z</StreamGeometry>
+		<StreamGeometry x:Key="appartement_path">M19 3V21H13V17.5H11V21H5V3H19M15 7H17V5H15V7M11 7H13V5H11V7M7 7H9V5H7V7M15 11H17V9H15V11M11 11H13V9H11V11M7 11H9V9H7V11M15 15H17V13H15V15M11 15H13V13H11V15M7 15H9V13H7V15M15 19H17V17H15V19M7 19H9V17H7V19M21 1H3V23H21V1Z</StreamGeometry>
+		<StreamGeometry x:Key="villa_path">M6,21V8A2,2 0 0,1 8,6L16,3V6A2,2 0 0,1 18,8V21H12V16H8V21H6M14,19H16V16H14V19M8,13H10V9H8V13M12,13H16V9H12V13Z</StreamGeometry>
+		<StreamGeometry x:Key="garage_path">M5.06 3C4.63 3 4.22 3.14 3.84 3.42C3.46 3.7 3.24 4.06 3.14 4.5L2.11 8.91C1.86 10 2.06 10.92 2.69 11.73C2.81 11.85 2.93 11.97 3.04 12.07C3.63 12.64 4.28 13 5.22 13C6.16 13 6.91 12.59 7.47 12.05C8.1 12.67 8.86 13 9.8 13C10.64 13 11.44 12.63 12 12.07C12.68 12.7 13.45 13 14.3 13C15.17 13 15.91 12.67 16.54 12.05C17.11 12.62 17.86 13 18.81 13C19.76 13 20.43 12.65 21 12.06C21.09 11.97 21.18 11.87 21.28 11.77C21.94 10.95 22.14 10 21.89 8.91L20.86 4.5C20.73 4.06 20.5 3.7 20.13 3.42C19.77 3.14 19.38 3 18.94 3M18.89 4.97L19.97 9.38C20.06 9.81 19.97 10.2 19.69 10.55C19.44 10.86 19.13 11 18.75 11C18.44 11 18.17 10.9 17.95 10.66C17.73 10.43 17.61 10.16 17.58 9.84L16.97 5M5.06 5H7.03L6.42 9.84C6.3 10.63 5.91 11 5.25 11C4.84 11 4.53 10.86 4.31 10.55C4.03 10.2 3.94 9.81 4.03 9.38M9.05 5H11V9.7C11 10.05 10.89 10.35 10.64 10.62C10.39 10.88 10.08 11 9.7 11C9.36 11 9.07 10.88 8.84 10.59C8.61 10.3 8.5 10 8.5 9.66V9.5M13 5H14.95L15.5 9.5C15.58 9.92 15.5 10.27 15.21 10.57C14.95 10.87 14.61 11 14.2 11C13.89 11 13.61 10.88 13.36 10.62C13.11 10.35 13 10.05 13 9.7M3 14.03V19C3 20.11 3.89 21 5 21C9.67 21 14.33 21 19 21C20.1 21 21 20.11 21 19V14.05C20.45 14.63 19.75 14.96 19 15C18 15.03 17.25 14.74 16.54 14.05C15.94 14.65 15.14 15 14.3 15C13.4 15 12.6 14.64 12 14.07C11.43 14.64 10.65 15 9.78 15C8.87 15 8.07 14.65 7.47 14.05C6.89 14.64 6.1 15 5.23 15C4.33 15 3.66 14.65 3 14.03Z</StreamGeometry>
+		<StreamGeometry x:Key="plus_path">M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z</StreamGeometry>
+		<StreamGeometry x:Key="moin_path">M19,13H5V11H19V13Z</StreamGeometry>
+		<StreamGeometry x:Key="logo_path">M59.889,627.934c-36.594,-30.583 -59.889,-76.56 -59.889,-127.934l0,-333.333c0,-91.986 74.681,-166.667 166.667,-166.667l333.333,-0c91.986,-0 166.667,74.681 166.667,166.667l-0,333.333c-0,91.986 -74.681,166.667 -166.667,166.667l-333.333,-0c-29.191,-0 -56.639,-7.521 -80.51,-20.729l129.748,-34.91l-5.839,-52.929l-56.205,-4.166l-4.38,-56.85l-54.014,-6.126l-35.578,136.977Zm341.905,-438.623c-9.489,0 -18.735,3.676 -26.034,10.782l-51.582,51.949l128.954,130.117l51.582,-51.459c14.598,-14.947 14.598,-38.226 -0,-52.439l-77.129,-78.168c-7.3,-7.106 -16.546,-10.782 -25.791,-10.782Zm-237.499,222.571c-5.633,-25.648 -8.45,-54.113 -8.45,-85.395c-0,-72.179 15.268,-129.244 45.806,-171.194c30.537,-41.95 77.885,-62.925 142.044,-62.925c54.905,-0 106.418,15.114 154.537,45.343l37.015,-64.776c-28.995,-17.891 -59.378,-31.463 -91.149,-40.717c-31.771,-9.253 -66.473,-13.88 -104.104,-13.88c-49.354,-0 -94.697,10.642 -136.03,31.925c-41.333,21.284 -74.801,55.214 -100.403,101.791c-25.602,46.577 -38.403,106.264 -38.403,179.06c0,58.695 8.723,110.145 26.168,154.348l72.969,-73.58Zm115.808,144.747l157.88,-159.2l-129.197,-129.872l-197.081,198.729l62.287,6.861l4.38,56.114l55.474,4.166l6.918,61.497l-22.799,22.989c35.317,14.85 76.61,22.275 123.879,22.275c37.632,-0 72.025,-4.936 103.179,-14.806c31.154,-9.871 63.08,-24.368 95.776,-43.493l-34.238,-62c-25.294,14.806 -50.587,26.219 -75.881,34.239c-25.293,8.02 -53.672,12.03 -85.134,12.03c-24.07,-0 -45.884,-3.176 -65.443,-9.529Z</StreamGeometry>
+
+	</Application.Resources>
+</Application>

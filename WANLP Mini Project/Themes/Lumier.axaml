@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	
+	<!-- party special a l'app-->
+	<SolidColorBrush x:Key="main_background_color" Color="#FFFFFF"/>
+	<SolidColorBrush x:Key="secondaire_background_color" Color="#F0F0F0"/>
+	<SolidColorBrush x:Key="traisier_background_color" Color="#E1E1E1"/>
+	<SolidColorBrush x:Key="quatrieme_background_color" Color="#DADADA"/>
+	<StreamGeometry x:Key="theme_path">M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z</StreamGeometry>
+	
+	<!-- party general -->
+	<SolidColorBrush x:Key="textbox_buttons_color" Color="#01ffffff"/>
+	<SolidColorBrush x:Key="textForground_color" Color="Black"/>
+</ResourceDictionary>

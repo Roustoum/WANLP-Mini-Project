@@ -1,0 +1,78 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:WANLP_Mini_Project.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:WANLP_Mini_Project.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="WANLP_Mini_Project.Views.MainWindow"
+		xmlns:pcontrols="using:WANLP_Mini_Project"
+		Icon="/Assets/WANLP.png"
+        Title="CohereZi"
+		MinWidth="400"
+		MinHeight="500"
+		WindowStartupLocation="CenterScreen"
+		ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="-1" Background="Transparent">
+	<Window.Styles>
+		<Style Selector="Grid.cacher">
+			<Setter Property="Margin" Value="0"/>
+		</Style>
+		<Style Selector="Grid.non_cacher">
+			<Setter Property="Margin" Value="7"/>
+		</Style>
+	</Window.Styles>
+	<Grid Name="GridRacine">
+		<Border ZIndex="10" IsVisible="{Binding Windows}" PointerPressed="Border_PointerPressed" BorderBrush="{DynamicResource quatrieme_background_color}" CornerRadius="20" BorderThickness="7"/>
+
+		<Grid Classes.cacher="{Binding !Windows}" Classes.non_cacher="{Binding Windows}" Name="GridPrincipal">
+
+		</Grid>
+		
+		<Grid Classes.cacher="{Binding !Windows}" Classes.non_cacher="{Binding Windows}" RowDefinitions="5,50,*,5" Classes.Gridwindows="{Binding MenuHorizional}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="5"/>
+				<ColumnDefinition Width="50"/>
+				<ColumnDefinition Width="{DynamicResource langue_menu_column_droite}"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="{DynamicResource langue_menu_column_ghauche}"/>
+				<ColumnDefinition Width="50"/>
+				<ColumnDefinition Width="5"/>
+			</Grid.ColumnDefinitions>
+			<Border Classes.menuHorizontal="{Binding MenuHorizional}" Classes.menuTest="{Binding !MenuHorizional}" Classes.menuVertical="{Binding MenuVertical}" Grid.Row="1">
+				<Border Classes="menu" VerticalAlignment="Top" Width="{Binding $parent.Bounds.Width}" Height="{Binding $parent.Bounds.Height}" CornerRadius="10">
+					<Grid>
+						<Grid PointerPressed="Border_PointerPressed" Background="Transparent"/>
+						<Grid>
+							<StackPanel Classes.menuHorizontal="{Binding MenuHorizional}">
+								<pcontrols:RMenu Classes.horizontal="{Binding MenuHorizional}" Tapped="Menu_Tapped" IsVisible="{Binding !MenuHorizional}" ZeroHeight="True" Name="menu" Nom="{DynamicResource langue_menu}" Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" Invisible="{Binding Menuouvert_windows}"/>
+								<Grid Height="60" IsVisible="{Binding !MenuHorizional}">
+									<Border Tapped="Changerthemeicon" CornerRadius="20" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="{DynamicResource langue_horizontalAlignmentL}">
+										<Path IsVisible="{Binding Menuouvert_windows}"  Margin="5,0" Stretch="Fill" Fill="{DynamicResource textForground_color}" Data="{DynamicResource theme_path}" Width="30" Height="30"/>
+									</Border>
+								</Grid>
+								<pcontrols:RMenu Classes.horizontal="{Binding MenuHorizional}" Name="Chatbot_menu" Tapped="Chatbot_taped" Nom="Chat Bot" Data="{DynamicResource chat_path}" Invisible="{Binding Menuouvert_windows}" ZeroHeight="{Binding Menuouvert_windows}" />
+								<pcontrols:RMenu Classes.horizontal="{Binding MenuHorizional}" Name="paramaitre_menu" Tapped="paramaitre_Tapped" Nom="{DynamicResource langue_parametres}" Invisible="{Binding Menuouvert_windows}" ZeroHeight="{Binding Menuouvert_windows}" Data="{DynamicResource paramaitre_path}" />
+								<pcontrols:RMenu Classes.horizontal="{Binding MenuHorizional}" Name="apropos_menu" Tapped="apropos_Tapped" Nom="{DynamicResource langue_a_propos}" Invisible="{Binding Menuouvert_windows}" ZeroHeight="{Binding Menuouvert_windows}" Data="{DynamicResource aprops_path}"/>
+							</StackPanel>
+						</Grid>
+					</Grid>
+				</Border>
+			</Border>
+			<Border Grid.Row="1" Classes.antimenuHorizontal="{Binding MenuHorizional}" Classes.antimenuTest="{Binding !MenuHorizional}" Classes.antimenuVertical="{Binding MenuVertical}" PointerPressed="Border_PointerPressed" Height="50" CornerRadius="10" VerticalAlignment="Top" Background="{DynamicResource quatrieme_background_color}" >
+				<Grid IsVisible="{Binding Windows}">
+					<Button Click="Fermer_Button_Click" Background="Transparent" Width="45" HorizontalAlignment="{DynamicResource langue_horizontalAlignmentL}">
+						<Path Width="15" Margin="5,0" Stretch="Fill" Fill="{DynamicResource textForground_color}" Height="15" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" RenderTransform="{DynamicResource langue_path_rotation}"/>
+					</Button>
+					<Button Click="Maximiser_Button_Click" Background="Transparent" Margin="50,0" Width="45" HorizontalAlignment="{DynamicResource langue_horizontalAlignmentL}">
+						<Path Width="15" Margin="5,0" Stretch="Fill" Fill="{DynamicResource textForground_color}" Height="15" Data="M4,4H20V20H4V4M6,8V18H18V8H6Z" RenderTransform="{DynamicResource langue_path_rotation}"/>
+					</Button>
+					<Button Click="Minimiser_Button_Click" Background="Transparent" Margin="{DynamicResource langue_reduire_button}" Width="45" HorizontalAlignment="{DynamicResource langue_horizontalAlignmentL}">
+						<Path Width="15" Margin="5,15,5,0" Stretch="Fill" Fill="{DynamicResource textForground_color}" Height="3" Data="M20,14H4V10H20" RenderTransform="{DynamicResource langue_path_rotation}"/>
+					</Button>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</Window>

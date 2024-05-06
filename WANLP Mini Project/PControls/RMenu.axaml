@@ -1,0 +1,219 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:WANLP_Mini_Project">
+	<Design.PreviewWith >
+		<StackPanel Background="#333333" Width="300">
+			<Border BorderBrush="Red" BorderThickness="1" Margin="25" >
+				<StackPanel>
+					<controls:RMenu ZeroHeight="True" Nom="CHAT GPT" Invisible="True" Data="{DynamicResource chat_path}"/>
+					<controls:RMenu ZeroHeight="True" Selectioner="True" Classes="horizontal" Nom="CHAT GPT" Invisible="True" Data="{DynamicResource chat_path}"/>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+
+	</Design.PreviewWith>
+
+	<Style Selector="controls|RMenu">
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Grid Background="Transparent">
+					<Grid Classes="back"/>
+					<Border />
+					<Path Data="{TemplateBinding Data}"/>
+					<TextBlock Text="{TemplateBinding Nom}" IsVisible="{TemplateBinding Invisible}"/>
+				</Grid>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu /template/ Grid.back">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Opacity" Value="0"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<BrushTransition Easing="BounceEaseOut" Property="Background" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu[ZeroHeight=False] /template/ Grid">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Height" Value="0"/>
+	</Style>
+
+	<Style Selector="controls|RMenu[ZeroHeight=True] /template/ Grid">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Height" Value="50"/>
+	</Style>
+
+	<Style Selector="controls|RMenu[Selectioner=True] /template/ Grid.back">
+		<Setter Property="Background" Value="{DynamicResource couleur_traissier_color}"/>
+		<Setter Property="Opacity" Value="0.2"/>
+	</Style>
+
+	<Style Selector="controls|RMenu /template/ Path">
+		<Setter Property="Height" Value="30"/>
+		<Setter Property="Width" Value="30"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="HorizontalAlignment" Value="{DynamicResource langue_horizontalAlignment}"/>
+		<Setter Property="Margin" Value="5,0"/>
+		<Setter Property="Stretch" Value="Fill"/>
+		<Setter Property="Fill" Value="{DynamicResource textForground_color}"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu:pointerover /template/ Path">
+		<Setter Property="RenderTransform" Value="scale(1.1)"/>
+	</Style>
+
+	<Style Selector="controls|RMenu[Selectioner=True] /template/ Path">
+	</Style>
+
+	<Style Selector="controls|RMenu /template/ TextBlock">
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="HorizontalAlignment" Value="Center"/>
+		<Setter Property="FontSize" Value="18"/>
+		<Setter Property="Foreground" Value="{DynamicResource textForground_color}"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu:pointerover /template/ TextBlock">
+		<Setter Property="RenderTransform" Value="scale(1.1)"/>
+	</Style>
+
+	<Style Selector="controls|RMenu[Selectioner=True] /template/ TextBlock">
+	</Style>
+
+
+	<Style Selector="controls|RMenu /template/ Border">
+		<Setter Property="Background" Value="{DynamicResource traisier_background_color}" />
+		<Setter Property="Height" Value="0"/>
+		<Setter Property="Width" Value="3"/>
+		<Setter Property="Margin" Value="5,5"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="HorizontalAlignment" Value="{DynamicResource langue_horizontalAlignmentL}"/>
+		<Setter Property="CornerRadius" Value="20"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<DoubleTransition Easing="BounceEaseOut" Property="Height" Duration="0:0:0.3"/>
+				<BrushTransition Easing="BounceEaseOut" Property="Background" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu[Selectioner=True] /template/ Border">
+		<Setter Property="Background" Value="{DynamicResource couleur_principale_color}"/>
+		<Setter Property="Height" Value="40"/>
+	</Style>
+
+	<Style Selector="controls|RMenu:pointerover /template/ Border">
+		<Setter Property="Background" Value="{DynamicResource textForground_color}" />
+		<Setter Property="Height" Value="40"/>
+	</Style>
+
+	<Style Selector="controls|RMenu:pointerover[Selectioner=True] /template/ Border">
+		<Setter Property="Background" Value="{DynamicResource couleur_principale_color}" />
+		<Setter Property="Height" Value="40"/>
+	</Style>
+	
+	<!--**** pour le menu horizontal ****-->
+
+	<Style Selector="controls|RMenu.horizontal">
+		<Setter Property="Width" Value="150"/>
+	</Style>
+
+	<Style Selector="controls|RMenu.horizontal /template/ Border">
+		<Setter Property="Background" Value="{DynamicResource traisier_background_color}" />
+		<Setter Property="Height" Value="3"/>
+		<Setter Property="Width" Value="0"/>
+		<Setter Property="Margin" Value="5,5"/>
+		<Setter Property="VerticalAlignment" Value="Bottom"/>
+		<Setter Property="HorizontalAlignment" Value="Center"/>
+		<Setter Property="CornerRadius" Value="20"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<DoubleTransition Easing="BounceEaseOut" Property="Width" Duration="0:0:0.3"/>
+				<BrushTransition Easing="BounceEaseOut" Property="Background" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu.horizontal[Selectioner=True] /template/ Border">
+		<Setter Property="Background" Value="{DynamicResource couleur_traissier_color}"/>
+		<Setter Property="Width" Value="100"/>
+	</Style>
+
+	<Style Selector="controls|RMenu.horizontal:pointerover /template/ Border">
+		<Setter Property="Background" Value="{DynamicResource textForground_color}" />
+		<Setter Property="Width" Value="100"/>
+	</Style>
+	
+	<Style Selector="controls|RMenu.horizontal:pointerover[Selectioner=True] /template/ Border">
+		<Setter Property="Background" Value="{DynamicResource couleur_traissier_color}" />
+		<Setter Property="Width" Value="120"/>
+	</Style>
+
+	<Style Selector="controls|RMenu.horizontal[Selectioner=True] /template/ Grid.back">
+		<Setter Property="Background" Value="{DynamicResource couleur_quatrieme_color}"/>
+		<Setter Property="Opacity" Value="0"/>
+	</Style>
+
+	<Style Selector="controls|RMenu.horizontal /template/ TextBlock">
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="HorizontalAlignment" Value="{DynamicResource langue_horizontalAlignmentL}"/>
+		<Setter Property="FontSize" Value="18"/>
+		<Setter	Property="Margin" Value="15,0,15,8"/>
+		<Setter Property="Foreground" Value="{DynamicResource textForground_color}"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu.horizontal /template/ Path">
+		<Setter Property="Height" Value="26"/>
+		<Setter Property="Width" Value="26"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="HorizontalAlignment" Value="{DynamicResource langue_horizontalAlignment}"/>
+		<Setter Property="Margin" Value="6,0,6,3"/>
+		<Setter Property="Stretch" Value="Fill"/>
+		<Setter Property="Fill" Value="{DynamicResource textForground_color}"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu.horizontal[Selectioner=True] /template/ Path">
+		<Setter Property="Fill">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,100">
+					<GradientStop Color="{DynamicResource color_traissier_color}" Offset="0" />
+					<GradientStop Color="{DynamicResource color_principale_color}" Offset="0.4" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style Selector="controls|RMenu.horizontal[Selectioner=True] /template/ TextBlock">
+		<Setter Property="Foreground">
+			<Setter.Value>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="0,100">
+					<GradientStop Color="{DynamicResource color_traissier_color}" Offset="0" />
+					<GradientStop Color="{DynamicResource color_principale_color}" Offset="0.4" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+</Styles>

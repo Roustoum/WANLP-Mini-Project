@@ -1,0 +1,21 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!--les couleur des themes-->
+	<SolidColorBrush x:Key="couleur_principale_color" Color="#557153"/>
+	<SolidColorBrush x:Key="couleur_scondaire_color" Color="#7D8F69"/>
+	<SolidColorBrush x:Key="couleur_traissier_color" Color="#A9AF7E"/>
+	<SolidColorBrush x:Key="couleur_quatrieme_color" Color="#E6E5A3"/>
+
+	<Color x:Key="color_principale_color">#557153</Color>
+	<Color x:Key="color_scondaire_color">#7D8F69</Color>
+	<Color x:Key="color_traissier_color">#A9AF7E</Color>
+	<Color x:Key="color_quatrieme_color">#E6E5A3</Color>
+
+	<!-- parametre theme -->
+	<Thickness x:Key="theme_1_thickness">0</Thickness>
+	<Thickness x:Key="theme_2_thickness">0</Thickness>
+	<Thickness x:Key="theme_3_thickness">0</Thickness>
+	<Thickness x:Key="theme_4_thickness">0</Thickness>
+	<Thickness x:Key="theme_5_thickness">2</Thickness>
+	<Thickness x:Key="theme_6_thickness">0</Thickness>
+</ResourceDictionary>

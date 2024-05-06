@@ -1,0 +1,90 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!-- Strings de la langues -->
+	<x:String x:Key="langue_menu">القائمة</x:String>
+	<x:String x:Key="langue_copier">لنسخ</x:String>
+	<x:String x:Key="langue_coller">لصق</x:String>
+	<x:String x:Key="langue_couper">قص</x:String>
+	<x:String x:Key="langue_ecrit">...كتابة</x:String>
+	<x:String x:Key="langue_titre">CohereZi</x:String>
+	<x:String x:Key="langue_parametres">الإعدادات</x:String>
+	<x:String x:Key="langue_a_propos">عن</x:String>
+	<x:String x:Key="langue_lien_serveur">رابط الخادم</x:String>
+	<x:String x:Key="langue_serveur_backend">خادم الواجهة الخلفية</x:String>
+	<x:String x:Key="langue_vr_serveur">خادم التعرف على الصوت</x:String>
+	<x:String x:Key="langue_nlp_serveur">خادم البرمجة اللغوية العصبية</x:String>
+	<x:String x:Key="langue_tts_serveur">خادم تحويل النص إلى كلام</x:String>
+	<x:String x:Key="langue_a_propos_text">قامة به بوروبة رستم عبد المولى بوكرينا عبد الرؤوف زواق عمر الفاروق غطوط محمد سامي WANLPهذا المشرو ع الصغير لل</x:String>
+	<x:String x:Key="langue_fr">الفرنسية</x:String>
+	<x:String x:Key="langue_ar">العربية</x:String>
+	<x:String x:Key="langue_en">الانجليزية</x:String>
+	<x:String x:Key="langue_langue">إعدادات اللغة</x:String>
+	<x:String x:Key="langue_app">لغة التطبيق</x:String>
+	<x:String x:Key="langue_vocal">لغة صوتية</x:String>
+	<x:String x:Key="langue_apparence">إعداد المظهر</x:String>
+	<x:String x:Key="langue_theme">مظهر</x:String>
+	<x:String x:Key="langue_utilisateur">مستخدم</x:String>
+	<x:String x:Key="langue_deconnection">تسجيل الخروج</x:String>
+	<x:String x:Key="langue_nom_utilisateur">إسم المستخدم</x:String>
+	<x:String x:Key="langue_mot_de_passe">كلمة السر</x:String>
+	<x:String x:Key="langue_parameter_profile">إعدادات الملف الشخصي</x:String>
+	<x:String x:Key="langue_connection">تسجيل الدخول</x:String>
+	<x:String x:Key="langue_inscription">تسجيل</x:String>
+	<x:String x:Key="langue_modifier">تعديل الحساب</x:String>
+	<x:String x:Key="langue_oui">نعم</x:String>
+	<x:String x:Key="langue_sombre_clair">وضع الضوء والظلام</x:String>
+	<x:String x:Key="langue_votre_commentaire">... اضافة تعليق</x:String>
+	<x:String x:Key="langue_votre_avis">... رايكم</x:String>
+	<x:String x:Key="langue_notez">قيم تطبيقنا</x:String>
+	<x:String x:Key="langue_envoyer">أرسل</x:String>
+	<x:String x:Key="langue_estimer">تقدير</x:String>
+	<x:String x:Key="langue_faire_estimer">قم بالتقدير</x:String>
+	<x:String x:Key="langue_local">محل</x:String>
+	<x:String x:Key="langue_appartement">شقة</x:String>
+	<x:String x:Key="langue_type_bien">نوع العقار</x:String>
+	<x:String x:Key="langue_type_appart">نوع شقة</x:String>
+	<x:String x:Key="langue_etage">الطابق</x:String>
+	<x:String x:Key="langue_nbretage">عدد الطوابق</x:String>
+	<x:String x:Key="langue_facade">عدد الواجهات</x:String>
+	<x:String x:Key="langue_surface">المساحة بالمتر المربع</x:String>
+	<x:String x:Key="langue_surface_const">المساحة المبنية بالمتر المربع</x:String>
+	<x:String x:Key="langue_villa">فيلا أو أرض</x:String>
+	<x:String x:Key="langue_vendre">يبيع</x:String>
+	<x:String x:Key="langue_louer">إيجار</x:String>
+	<x:String x:Key="langue_quoid_faire">ماذا تريدون أن تفعل</x:String>
+	<x:String x:Key="langue_bare_de_tache">استخدم شريط المهام الخاص بنا</x:String>
+	
+	<!-- Propriete de la langues -->
+	<TextAlignment x:Key="langue_textalign">End</TextAlignment>
+	<Dock x:Key="langue_dock_droite">Left</Dock>
+	<Dock x:Key="langue_dock_ghauche">Right</Dock>
+	<Thickness x:Key="langue_textbox_margin">7,0,0,0</Thickness>
+	<FlowDirection x:Key="langue_flowdirection">RightToLeft</FlowDirection>
+	<CornerRadius x:Key="langue_textboxradius">0,15,15,0</CornerRadius>
+	<Rotate3DTransform x:Key="langue_path_rotation" AngleY="180"/>
+	<HorizontalAlignment x:Key="langue_horizontalAlignment">Right</HorizontalAlignment>
+	<HorizontalAlignment x:Key="langue_horizontalAlignmentL">Left</HorizontalAlignment>
+	<Thickness x:Key="langue_fr_cornerradius">0</Thickness>
+	<Thickness x:Key="langue_ar_cornerradius">0,0,0,3</Thickness>
+	<Thickness x:Key="langue_en_cornerradius">0</Thickness>
+	<x:Int32 x:Key="langue_grid_ghauche">0</x:Int32>
+	<x:Int32 x:Key="langue_grid_droite">2</x:Int32>
+	
+	<CornerRadius x:Key="langue_windows_menu_corner">0,15,15,0</CornerRadius>
+	<CornerRadius x:Key="langue_windows_bare_corner">15,0,0,0</CornerRadius>
+	<Thickness x:Key="langue_windows_contour">0,-9,-9,0</Thickness>
+	<Thickness x:Key="langue_windows_contenu">8,-50,0,8</Thickness>
+
+	<!-- Projet WANLP -->
+	<x:Int32 x:Key="langue_border_ghauche_vertical">4</x:Int32>
+	<x:Int32 x:Key="langue_border_ghauche_horizental">3</x:Int32>
+	<x:Int32 x:Key="langue_border_ghauche_horizentalouvert">5</x:Int32>
+	<x:Int32 x:Key="langue_border_ghauche_antivertical">1</x:Int32>
+	<x:Int32 x:Key="langue_border_ghauche_antihorizental">1</x:Int32>
+	<x:Int32 x:Key="langue_border_ghauche_antihorizentalouvert">1</x:Int32>
+	
+	<GridLength x:Key="langue_menu_column_droite">50</GridLength>
+	<GridLength x:Key="langue_menu_column_ghauche">200</GridLength>
+
+	<Thickness x:Key="langue_reduire_button">100,0,0,0</Thickness>
+</ResourceDictionary>

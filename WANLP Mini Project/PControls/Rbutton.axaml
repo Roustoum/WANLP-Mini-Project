@@ -1,0 +1,169 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <StackPanel Width="500" Height="600" Background="#333333">
+      <!-- Add Controls for Previewer Here -->
+    </StackPanel>
+  </Design.PreviewWith>
+
+	<Style Selector="TextBox">
+		<Setter Property="FontFamily" Value="Assets/nexa.ttf"/>
+	</Style>
+	<Style Selector="TextBlock">
+		<Setter Property="FontFamily" Value="Assets/nexa.ttf"/>
+	</Style>
+	
+	
+	<Style Selector="Button">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border CornerRadius="{TemplateBinding CornerRadius}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}"
+							Padding="{TemplateBinding Padding}">
+						<ContentPresenter CornerRadius="{TemplateBinding CornerRadius}"
+										  ClipToBounds="True"
+										  HorizontalAlignment="Center"
+										  Content="{TemplateBinding Content}"
+										  Padding="{TemplateBinding Padding}"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style Selector="Button:pointerover /template/ ContentPresenter">
+		<Setter Property="RenderTransform" Value="scale(1.1)"/>
+	</Style>
+
+	<Style Selector="Button /template/ ContentPresenter">
+		<Setter Property="Transitions">
+			<Transitions>
+				<TransformOperationsTransition Easing="BounceEaseOut" Property="RenderTransform" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+	
+	
+	<Style Selector="Button.audio">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border CornerRadius="{TemplateBinding CornerRadius}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}">
+						<ContentPresenter CornerRadius="{TemplateBinding CornerRadius}"
+										  ClipToBounds="True"
+										  Content="{TemplateBinding Content}"
+										  Padding="{TemplateBinding Padding}"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style Selector="Button.audio:pointerover /template/ ContentPresenter">
+		<Setter Property="RenderTransform" Value="scale(1.1)"/>
+	</Style>
+	
+	<Style Selector="Button.audio /template/ ContentPresenter">
+		<Setter Property="Transitions">
+			<Transitions>
+				<TransformOperationsTransition Easing="BounceEaseOut" Property="RenderTransform" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="Button.mic">
+		<Setter Property="Background" Value="{DynamicResource couleur_principale_color}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource couleur_principale_color}"/>
+		<Setter Property="BorderThickness" Value="3"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<BrushTransition Easing="BounceEaseOut" Property="Background" Duration="0:0:0.2"/>
+				<BrushTransition Easing="BounceEaseOut" Property="BorderBrush" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border CornerRadius="{TemplateBinding CornerRadius}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							Background="{TemplateBinding Background}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							>
+						<ContentPresenter CornerRadius="{TemplateBinding CornerRadius}"
+										  ClipToBounds="True"
+										  Content="{TemplateBinding Content}"
+										  Padding="{TemplateBinding Padding}"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style Selector="Button.mic:pointerover /template/ ContentPresenter">
+		<Setter Property="RenderTransform" Value="scale(1.1)"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<BrushTransition Property="Background" Duration="0:0:0.5"/>
+				<BrushTransition Property="BorderBrush" Duration="0:0:0.5"/>
+			</Transitions>
+		</Setter>
+	</Style>
+	
+	<Style Selector="Button.mic:pointerover /template/ Border">
+		<Setter Property="BorderBrush" Value="{DynamicResource couleur_scondaire_color}"/>
+		<Setter Property="Transitions">
+			<Transitions>
+				<BrushTransition Property="Background" Duration="0:0:0.5"/>
+				<BrushTransition Property="BorderBrush" Duration="0:0:0.5"/>
+			</Transitions>
+		</Setter>
+	</Style>
+	
+	<Style Selector="Button.mic /template/ Border">
+		<Setter Property="Transitions">
+			<Transitions>
+				<BrushTransition Property="Background" Duration="0:0:0.5"/>
+				<BrushTransition Property="BorderBrush" Duration="0:0:0.5"/>
+			</Transitions>
+		</Setter>
+	</Style>
+	
+	<Style Selector="Button.mic /template/ ContentPresenter">
+		<Setter Property="Transitions">
+			<Transitions>
+				<BrushTransition Property="Background" Duration="0:0:0.5"/>
+				<BrushTransition Property="BorderBrush" Duration="0:0:0.5"/>
+				<TransformOperationsTransition Easing="BounceEaseOut" Property="RenderTransform" Duration="0:0:0.2"/>
+			</Transitions>
+		</Setter>
+	</Style>
+
+	<Style Selector="Button.micon /template/ Border">
+		<Setter Property="BorderBrush" Value="{DynamicResource couleur_scondaire_color}"/>
+		
+	</Style>
+	<Style Selector="Button.micon /template/ ContentPresenter">
+		<Setter Property="Effect">
+			<Setter.Value>
+				<DropShadowEffect Color="Black" BlurRadius="5" Opacity="1" OffsetX="0" OffsetY="0" />
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style Selector="Button.mic /template/ ContentPresenter">
+		<Setter Property="Effect">
+			<Setter.Value>
+				<DropShadowEffect Color="Black" BlurRadius="5" Opacity="1" OffsetX="0" OffsetY="0" />
+			</Setter.Value>
+		</Setter>
+	</Style>
+</Styles>

@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="WANLP_Mini_Project.Views.apropos" Background="{DynamicResource main_background_color}">
+	<Grid Margin="5">
+		<Path Data="{DynamicResource logo_path}" Fill="{DynamicResource couleur_principale_color}" VerticalAlignment="Top" Margin="10" Stretch="UniformToFill" Height="100" Width="100"/>
+		<TextBlock TextWrapping="Wrap" Margin="50" Text="{DynamicResource langue_a_propos_text}" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{DynamicResource textForground_color}"/>
+		<TextBlock FlowDirection="{DynamicResource langue_flowdirection}" Text="2023/2024" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="{DynamicResource langue_horizontalAlignmentL}" Foreground="{DynamicResource textForground_color}"/>
+		<Button Command="{Binding afficher_commentaireCommand}" Foreground="{DynamicResource textForground_color}" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}">
+			<TextBlock Text="{DynamicResource langue_votre_avis}" TextDecorations="Underline"/>
+		</Button>
+	</Grid>
+</UserControl>

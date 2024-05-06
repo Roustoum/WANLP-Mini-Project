@@ -1,0 +1,97 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="400" Background="Transparent" d:DesignHeight="700"
+             x:Class="WANLP_Mini_Project.Views.massage_view" >
+
+	<UserControl.Styles>
+		<Style Selector="ListBoxItem">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="ListBoxItem">
+						<Grid Margin="0,0,0,2" Background="{DynamicResource secondaire_background_color}" ColumnDefinitions="auto,*,auto" RowDefinitions="auto,auto,auto">
+							<Path IsVisible="{Binding est_bot}" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="{DynamicResource langue_grid_droite}" Stretch="Fill" Data="{DynamicResource chat_path}" Fill="{DynamicResource textForground_color}" Width="30" Height="30" Margin="5" />
+							<Path IsVisible="{Binding !est_bot}" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="{DynamicResource langue_grid_droite}" Stretch="Fill" Data="{DynamicResource utilisateur_path}" Fill="{DynamicResource textForground_color}" Width="25" Height="25" Margin="5" />
+							<TextBlock Padding="5" FontSize="16" FontWeight="Bold" Grid.Column="1" Foreground="{DynamicResource textForground_color}" Text="CohereZi" IsVisible="{Binding est_bot}" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}"/>
+							<TextBlock Padding="5" FontSize="16" FontWeight="Bold" Grid.Column="1" Foreground="{DynamicResource textForground_color}" Text="{DynamicResource langue_utilisateur}" IsVisible="{Binding !est_bot}" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}"/>
+							<TextBlock TextWrapping="Wrap" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}" Foreground="{DynamicResource textForground_color}" Padding="5" Grid.Column="1" Grid.Row="1" Text="{Binding logs}"/>
+							<ListBox Grid.Row="1" Grid.Column="1" IsVisible="{Binding est_bot}" ItemsSource="{Binding phrases}" Background="Transparent">
+								<ListBox.Styles>
+									<Style Selector="ListBoxItem">
+										<Setter Property="Template">
+											<Setter.Value>
+												<ControlTemplate TargetType="ListBoxItem">
+													<StackPanel  >
+														<StackPanel >
+															<Border Classes.correct="{Binding est_coherent}" Classes.fausse="{Binding !est_coherent}">
+																<TextBlock Text="{Binding text}" TextWrapping="Wrap" HorizontalAlignment="{DynamicResource langue_horizontalAlignment}" Foreground="{DynamicResource textForground_color}" Padding="5"/>
+															</Border>
+														</StackPanel>
+														<ListBox Background="Transparent" IsVisible="{Binding !est_coherent}" ItemsSource="{Binding suggestion}">
+															<ListBox.Styles>
+																<Style Selector="ListBoxItem">
+																	<Setter Property="Template">
+																		<Setter.Value>
+																			<ControlTemplate TargetType="ListBoxItem">
+																				<StackPanel Margin="1" Orientation="Horizontal" FlowDirection="{DynamicResource langue_flowdirection}" Background="{DynamicResource secondaire_background_color}">
+																					<TextBlock TextWrapping="Wrap" Foreground="{DynamicResource textForground_color}" Padding="2" Text="-"/>
+																					<TextBlock TextWrapping="Wrap" Foreground="{DynamicResource textForground_color}" Padding="2" Text="{Binding .}"/>
+																				</StackPanel>
+																			</ControlTemplate>
+																		</Setter.Value>
+																	</Setter>
+																</Style>
+															</ListBox.Styles>
+														</ListBox>
+													</StackPanel>
+												</ControlTemplate>
+											</Setter.Value>
+										</Setter>
+									</Style>
+								</ListBox.Styles>
+							</ListBox>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style Selector="Border.correct">
+			<Setter Property="Background" Value="Green"/>
+			<Setter Property="CornerRadius" Value="5"/>
+			<Setter Property="HorizontalAlignment" Value="{DynamicResource langue_horizontalAlignment}"/>
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+		<Style Selector="Border.fausse">
+			<Setter Property="Background" Value="OrangeRed"/>
+			<Setter Property="CornerRadius" Value="5"/>
+			<Setter Property="HorizontalAlignment" Value="{DynamicResource langue_horizontalAlignment}"/>
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+	</UserControl.Styles>
+
+	<Grid RowDefinitions="*,auto" Background="Transparent">
+		<Grid Grid.Row="0" Background="Transparent">
+			<ScrollViewer VerticalScrollBarVisibility="Hidden" Background="Transparent">
+				<ListBox Name="message_listbox" Background="Transparent"/>
+			</ScrollViewer>
+		</Grid>
+
+		<Grid Grid.Row="1" Background="Transparent">
+			<DockPanel Margin="5">
+				<Button Classes="mic" Classes.micon="{Binding Captureaudio}" Click="Capture_microphone"  CornerRadius="35" DockPanel.Dock="{DynamicResource langue_dock_droite}">
+					<Path Width="20" Stretch="Fill" Fill="{DynamicResource textForground_color}" Height="25" Data="{Binding Microphone_path}"/>
+				</Button>
+				<Border DockPanel.Dock="{DynamicResource langue_dock_ghauche}" Margin="{DynamicResource langue_textbox_margin}" CornerRadius="15" BorderThickness="2" BorderBrush="{DynamicResource couleur_principale_color}" Background="{DynamicResource traisier_background_color}">
+					<DockPanel ClipToBounds="True" >
+						<Button Classes="audio" Click="Envoyeur_message" DockPanel.Dock="{DynamicResource langue_dock_droite}" CornerRadius="40">
+							<Path Width="20" Stretch="Fill" Fill="{DynamicResource textForground_color}" Height="25" Data="M2,21L23,12L2,3V10L17,12L2,14V21Z" RenderTransform="{DynamicResource langue_path_rotation}"/>
+						</Button>
+						<TextBox Name="message" Margin="3" DockPanel.Dock="{DynamicResource langue_dock_droite}" Watermark="{DynamicResource langue_ecrit}" IsTabStop="True" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" MaxLines="3" CornerRadius="{DynamicResource langue_textboxradius}" Classes="clearButton"/>
+					</DockPanel>
+				</Border>
+
+			</DockPanel>
+		</Grid>
+	</Grid>
+</UserControl>
